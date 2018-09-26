@@ -3,28 +3,51 @@ package me.afua;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+        Scanner input = new Scanner(System.in);
         Person theParent = new Person();
-        theParent.setName("Afua");
+        System.out.println("please Enter the name of your parent !");
+        String pName = input.nextLine();
+        theParent.setName(pName);
 
 //        Adding children here
+        System.out.println("Please enter the names of your children !");
         Person childOne = new Person();
-        childOne.setName("First Child");
+
+        System.out.println("Enter the name of your children !");
+        String childName = input.nextLine();
+        childOne.setName(childName);
         theParent.addAChild(childOne);
+        boolean check=true;
 
-        Person childTwo = new Person();
-        childTwo.setName("Second Child");
-        theParent.addAChild(childTwo);
+        while(check) {
 
-        Person childThree = new Person();
-        childThree.setName("Third Child");
-        theParent.addAChild(childThree);
+            System.out.println("IF you have more children press write yes  else press any key from the keyboard !");
+            String meCheck = input.nextLine();
+            if(meCheck.equalsIgnoreCase("yes")) {
+                System.out.println("Enter the name of the other children !");
+                Person childTwo = new Person();
+                String children=input.nextLine();
+                childTwo.setName(children);
+                theParent.addAChild(childTwo);
+            }
+            else{
+                System.out.println("Thank you for entering the name's of your children !");
+                check =false;
+            }
 
-        ArrayList <String> theirNames  = new ArrayList<>();
+        }
+
+        ArrayList <String> theirNames  = new ArrayList<String>();
+
+        System.out.println("The number of children you have entered for"+ theParent.getName() +" is "+theParent.getMyChildren().size() );
+        // experience.getDuties()
+
         for(Person eachChild: theParent.getMyChildren())
         {
 
