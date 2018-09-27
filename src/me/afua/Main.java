@@ -56,7 +56,7 @@ public class Main {
         }
 
         Collections.sort(theirNames);
-        System.out.println("Sorted Names:\n");
+        System.out.println("Sorted Names :\n");
         for(String aName:theirNames)
         {
             System.out.println(aName);
